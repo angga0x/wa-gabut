@@ -32,6 +32,7 @@ async function covertURL(url) {
 
         const convertResponse = await axios(convertConfig)
         const convertData = convertResponse.data
+        console.log(convertData)
 
         if(convertData.status == 'ok') {
             const video720p = convertData.links.find(link => link.s.includes('720p'))
