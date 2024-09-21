@@ -28,7 +28,9 @@ async function reelsConvert(url) {
         };
 
         const reelsResponse = await axios(reelsConfig)
+        console.log(reelsResponse)
         const reelsData = reelsResponse.data
+        console.log(reelsData)
 
         if (reelsResponse.status === 200) {
             const job_id = reelsData.job_id
@@ -63,7 +65,7 @@ async function reelsConvert(url) {
                             setTimeout(checkStatus, 5000)
 
                         } else if (reelsCheckData.payload) {
-                            const endTime = Date.now(); // Selesai waktu
+                            const endTime = Date.now()
                             const duration = (endTime - startTime) / 1000
                             console.log(`Durasi: ${duration} detik`)
                             resolve(reelsCheckData.payload[0].path)
